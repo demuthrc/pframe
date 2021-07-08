@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+   web:
+     image: picf:network
+     ports:
+      - "5000:5000"
+     volumes:
+       - /mnt/omv/evie_frame:/images
+       - /docker/pframe:/app
+     restart: always
+    #  environment:
+    #    MYSQL_ROOT_PASSWORD: somewordpress
+    #    MYSQL_DATABASE: wordpress
+    #    MYSQL_USER: wordpress
+    #    MYSQL_PASSWORD: wordpress
