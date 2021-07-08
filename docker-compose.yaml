@@ -5,7 +5,7 @@ services:
      ports:
       - "5000:5000"
      volumes:
-       - /mnt/omv/evie_frame:/images
+       - /mnt/omv/eframe:/images
        - /docker/pframe:/app
      restart: always
     #  environment:
