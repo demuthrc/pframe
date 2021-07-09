@@ -7,6 +7,7 @@ RUN mkdir -p /images/
 WORKDIR /app
 ADD . /app
 RUN pip3 install -r app/req3.txt
+RUN ln /images/ /app/static/images
 EXPOSE 5000
 VOLUME /app /images
 ENTRYPOINT ["python3"]
