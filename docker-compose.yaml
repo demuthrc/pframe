@@ -1,15 +1,10 @@
 version: '3.3'
 services:
-   web:
-     image: picf:network
-     ports:
-      - "5050:5050"
-     volumes:
-       - /mnt/omv/eframe:/images
-       - /docker/pframe:/app
-     restart: always
-    #  environment:
-    #    MYSQL_ROOT_PASSWORD: somewordpress
-    #    MYSQL_DATABASE: wordpress
-    #    MYSQL_USER: wordpress
-    #    MYSQL_PASSWORD: wordpress
+  picframe: 
+    image: demuthrc/pframe2:latest 
+    ports: 
+      - "5000:5000" ythe 
+    volumes:
+     - /path/to/pictures:/images
+     - /path/to/app:/app
+    restart: always
