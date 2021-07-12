@@ -4,7 +4,7 @@ VOLUME /images
 RUN apt-get update -y
 RUN apt-get install git python3 python3-pip python3-dev python-pip-whl -y
 RUN pip install --upgrade pip
-ADD . /
+ADD /app ./app
 #WORKDIR /
 #RUN git clone https://github.com/demuthrc/pframe.git
 #WORKDIR /pframe/app
