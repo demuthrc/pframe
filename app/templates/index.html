@@ -1,15 +1,19 @@
 <html>
 <head>
-<meta name="apple-mobile-web-app-capable" content="yes">
 <meta http-equiv="refresh" content="10">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Fotos">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/main.css') }}">
 </head>
 <body id="mainb" style="background-color:black;">
-<div id="under" style="background-color:black;" /div>
-<div id="over">
+<div class="content">
+<div class="mySlides">
 <img src ="static/images/{{ imgs }}" class="imgstyle" align="middle"></img>
+</div>
 </div>
 </body>
 </html>
-
-
