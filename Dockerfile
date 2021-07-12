@@ -9,6 +9,6 @@ WORKDIR /app
 ADD /app /app
 RUN pip3 install -r req3.txt
 RUN ln -s /images /app/static/
-EXPOSE 5050
+EXPOSE 5000
 ENTRYPOINT ["python3"]
 CMD ["/app/wsgi.py"]
