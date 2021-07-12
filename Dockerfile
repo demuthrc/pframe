@@ -12,4 +12,4 @@ WORKDIR /app
 RUN pip3 install -r req3.txt
 EXPOSE 5050
 ENTRYPOINT ["python3"]
-CMD ["/app/wsgi.py"]
+CMD ["wsgi.py"]
