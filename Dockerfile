@@ -1,5 +1,6 @@
 FROM python:3.7.3-slim-stretch
-
+volume /app 
+volume /images
 RUN apt-get update -y
 RUN apt-get install  python3 python3-pip python3-dev python-pip-whl -y
 RUN pip install --upgrade pip
