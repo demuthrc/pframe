@@ -31,6 +31,9 @@
   background: black;
   vertical-align: middle
 }
+body {
+  overflow: hidden;
+}
 
 .vertical-center {
   margin: 0;
