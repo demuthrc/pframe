@@ -1,21 +1,21 @@
-Fork of satssehgal/pictureframe
-Server Side Picture Frame Web App
-This is a very simple server side picture frame web application that you could use to host photos and display them on a computer, phone, or even hang a tablet on a wall and build a rotating image picture frame.
+<h1>Upgraded Server Side Picture Frame Web App </h1>
 
-You'll need to mount and bind the folder you want to use for your pictures, as well as a folder/volume to use for the files.
+This is a fork/rework of <https://github.com/satssehgal/pictureframe>.
 
- Move any image you want into the img folder and watch it come to life on all your devices. No more SD cards or external storage needed for each device. See below for the simple docker-compose file
+I couldn't get the original to run on my primary (Intel based) home server, and wasn't happy with how it ran on my arm based sbc.  I wanted a simple, easy to redeploy soluiton that would grab pictures from a folder on my local NAS, which the original didn't really easily allow for. 
 
-Download the files and run 'docker-compose up -d' and you're set. It will launch on your device at port 5000. Its a good idea to have a static ip for your host machine
+My version implements a few big changes
+-Volume support - allows you to more easily edit the html/css and python files, as well as direct the app to a folder on your NAS storage.
+-Auto-resizing pictures (width prioritized for portrait mode).
+-Vertically centered images, with black background above and below landscape photos
+-Deploys more easily
 
-Tested on raspberry pi zero, 3, 3B+, 4B, RockPi64, and Mac Big Sur. If the images fails to load on your OS i've included the core files and Dockerfile for your to build your own image.
+This is a straightforward server side picture frame web application that you can use to host photos and display on a screen.  By default it is optimized for portrait mode, but you can edit (or invert) the CSS code to support landscape mode. (I've got mine running on an old gen 1 ipad, and it works well in both Safari and Dolphin). 
 
+You'll need to bind mount a folder to /images (I use a folder on my local NAS), and ideally you should create and specify a named volume for /app. 
 
+Move any image you want into the folder mapped to /images and watch it come to life on all your devices. No more SD cards or external storage needed for each device. 
 
-````
-git clone https://github.com/demuthrc/pframe.git
-cd git pframe
-````
 
 Edit the docker-compose.yaml file so that your bind paths to app and images are correct
 
@@ -23,9 +23,9 @@ Edit the docker-compose.yaml file so that your bind paths to app and images are 
 version: '3.3'
 services:
   picframe: 
-    image: demuthrc/pframe:latest 
+    image: demuthrc/pframe2:latest 
     ports: 
-      - "5050:5050" 
+      - "5000:5000" ythe 
     volumes:
      - /path/to/pictures:/images
      - /path/to/app:/app
@@ -37,10 +37,6 @@ Then execute
 ````
 docker-compose up -d
 ````
+You should also be able to get this up and running on portainer, or with a docker build command using the image rcdemuth/pframe2 over on github.
 
-Finally to get it working correctly, execute the following in your terminal
-
-Docker won't build right with this command in the dockerfile.  I'm not sure why.
-````
-ln -s /path/to/images /path/to/app/static/images
-````
+You should be good to go.  Please note, that if you do a bind mount to /app, then you will need to manually copy all of the /app files into the mounted directory on your host machine.
