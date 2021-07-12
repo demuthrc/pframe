@@ -15,7 +15,8 @@ Tested on raspberry pi zero, 3, 3B+, 4B, RockPi64, and Mac Big Sur. If the image
 ````
 git clone https://github.com/demuthrc/pframe.git
 cd git pframe
-''''
+````
+
 Edit the docker-compose.yaml file so that your bind paths to app and images are correct
 
 ````
@@ -29,15 +30,17 @@ services:
      - /path/to/pictures:/images
      - /path/to/app:/app
     restart: always
-    
-  ````
+````
+
 Then execute
 
-''''
+````
 docker-compose up -d
-''''
+````
 
 Finally to get it working correctly, execute the following in your terminal
 
 Docker won't build right with this command in the dockerfile.  I'm not sure why.
+````
 ln -s /path/to/images /path/to/app/static/images
+````
