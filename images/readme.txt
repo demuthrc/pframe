@@ -1,1 +1,0 @@
-bind network folder here
