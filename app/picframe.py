@@ -17,12 +17,10 @@ bootstrap = Bootstrap(app)
 
 def getImgs():
 	img_list=[]
-	for file in listdir(/images/'):
+	for file in listdir('/images/'):
 		img_list.append(file)
 	return random.choice(img_list)
 
 @app.route('/')
 def sendImgs():
 	return render_template('index.html', imgs=getImgs())
-
-
