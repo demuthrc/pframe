@@ -17,7 +17,7 @@ bootstrap = Bootstrap(app)
 
 def getImgs():
 	img_list=[]
-	for file in listdir('os.getcwd()+'/static/images/'):
+	for file in listdir(/images/'):
 		img_list.append(file)
 	return random.choice(img_list)
 
