@@ -9,6 +9,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_bootstrap import Bootstrap
 import random
 import time
+import fnmatch
 
 #load_dotenv()
 
@@ -18,7 +19,8 @@ bootstrap = Bootstrap(app)
 def getImgs():
 	img_list=[]
 	for file in listdir('/images/'):
-		img_list.append(file)
+		    if fnmatch.fnmatch(file, '*.jpg'):
+			img_list.append(file)
 	return random.choice(img_list)
 
 @app.route('/')
