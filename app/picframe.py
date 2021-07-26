@@ -15,14 +15,13 @@ import time
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 
-#this function will return all files that are not directories
 def getImgs():
 	img_list=[]
 	for file in listdir('/images/'):
-		if file is not 'images':
+		if file != 'images':
 			img_list.append(file)
 	return random.choice(img_list)
-		
+
 @app.route('/')
 def sendImgs():
 	return render_template('index.html', imgs=getImgs())
