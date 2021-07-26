@@ -18,7 +18,8 @@ bootstrap = Bootstrap(app)
 def getImgs():
 	img_list=[]
 	for file in listdir('/images/'):
-		img_list.append(file)
+		if file != 'images':
+			img_list.append(file)
 	return random.choice(img_list)
 
 @app.route('/')
